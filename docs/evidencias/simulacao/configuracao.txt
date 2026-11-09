@@ -11,7 +11,7 @@ destination: 0.0.0.0
   interface: em0
       flags: <UP,GATEWAY,DONE,STATIC>
  recvpipe  sendpipe  ssthresh  rtt,msec    mtu        weight    expire
-       0         0         0         0      1500         1         0 
+       0         0         0         0      1500         1         0
 net.inet.ip.forwarding: 1
 PF_SYNTAX_EXIT=0
 SHA256 (/etc/pf.conf) = 9db565f01fdf80ebd8b7deb7f500124ee1386f1c700c79dccbd23dd8047fcec6

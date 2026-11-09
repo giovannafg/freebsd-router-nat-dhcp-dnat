@@ -18,12 +18,12 @@ destination: 0.0.0.0
   interface: em0
       flags: <UP,GATEWAY,DONE,STATIC>
  recvpipe  sendpipe  ssthresh  rtt,msec    mtu        weight    expire
-       0         0         0         0      1500         1         0 
+       0         0         0         0      1500         1         0
 net.inet.ip.forwarding: 1
 Status: Enabled for 0 days 00:01:35           Debug: Urgent
 
 State Table                          Total             Rate
-  current entries                        0               
+  current entries                        0
   searches                               0            0.0/s
   inserts                                0            0.0/s
   removals                               0            0.0/s
