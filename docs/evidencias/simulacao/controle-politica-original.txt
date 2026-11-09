@@ -1,0 +1,21 @@
+LAB# route -n get 172.16.0.10; ping -c 3 -t 5 172.16.0.10; nc -z -v -w 3 172.16.0.10 8080; echo BASELINE_TCP_EXIT=$?
+   route to: 172.16.0.10
+destination: 172.16.0.0
+       mask: 255.255.0.0
+    gateway: 192.168.50.101
+        fib: 0
+  interface: em0
+      flags: <UP,GATEWAY,DONE,STATIC>
+ recvpipe  sendpipe  ssthresh  rtt,msec    mtu        weight    expire
+       0         0         0         0      1500         1         0 
+PING 172.16.0.10 (172.16.0.10): 56 data bytes
+64 bytes from 172.16.0.10: icmp_seq=0 ttl=63 time=8.405 ms
+64 bytes from 172.16.0.10: icmp_seq=1 ttl=63 time=5.955 ms
+64 bytes from 172.16.0.10: icmp_seq=2 ttl=63 time=7.009 ms
+
+--- 172.16.0.10 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 5.955/7.123/8.405/1.004 ms
+Connection to 172.16.0.10 8080 port [tcp/http-alt] succeeded!
+BASELINE_TCP_EXIT=0
+LAB#

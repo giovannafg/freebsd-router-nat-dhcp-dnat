@@ -1,0 +1,32 @@
+LAB# freebsd-version -kru; ifconfig -l; route -n get default; sysctl net.inet.ip.forwarding; pfctl -nf /etc/pf.conf; echo PF_SYNTAX_EXIT=$?; sha256 /etc/pf.conf; pfctl -sn; pfctl -sr
+14.5-RELEASE
+14.5-RELEASE
+14.5-RELEASE
+em0 em1 lo0
+   route to: 0.0.0.0
+destination: 0.0.0.0
+       mask: 0.0.0.0
+    gateway: 192.168.50.1
+        fib: 0
+  interface: em0
+      flags: <UP,GATEWAY,DONE,STATIC>
+ recvpipe  sendpipe  ssthresh  rtt,msec    mtu        weight    expire
+       0         0         0         0      1500         1         0 
+net.inet.ip.forwarding: 1
+PF_SYNTAX_EXIT=0
+SHA256 (/etc/pf.conf) = 9db565f01fdf80ebd8b7deb7f500124ee1386f1c700c79dccbd23dd8047fcec6
+nat on em0 inet from 172.16.0.0/16 to any -> (em0) round-robin
+rdr on em0 inet proto tcp from any to (em0) port = http tag DNAT_WEB -> 172.16.0.10 port 8080
+block drop log all
+pass in quick on em1 inet proto udp from any port = bootpc to (em1) port = bootps keep state
+pass in quick on em1 inet proto udp from any port = bootpc to 255.255.255.255 port = bootps keep state
+pass out quick on em1 inet proto udp from (em1) port = bootps to 172.16.0.0/16 port = bootpc keep state
+pass out quick on em1 inet proto udp from (em1) port = bootps to 255.255.255.255 port = bootpc keep state
+pass in quick on em0 inet proto udp from any port = bootps to (em0) port = bootpc keep state
+pass in quick on em0 inet proto udp from any port = bootps to 255.255.255.255 port = bootpc keep state
+pass out quick on em0 inet proto udp from any port = bootpc to any port = bootps keep state
+pass out on em0 inet from (em0) to any flags S/SA keep state
+pass in on em0 inet proto tcp from any to 172.16.0.10 port = http-alt flags S/SA keep state tagged DNAT_WEB
+pass in on em1 inet from 172.16.0.0/16 to any flags S/SA keep state
+pass out on em1 inet proto tcp from any to 172.16.0.10 port = http-alt flags S/SA keep state tagged DNAT_WEB
+LAB#

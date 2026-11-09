@@ -1,0 +1,49 @@
+root@roteador:~ # export TERM=dumb; PS1="LAB# "; date -u; freebsd-version -kru; ifconfig -l; ifconfig em0 inet; ifconfig em1 inet; route -n get default; sysctl net.inet.ip.forwarding; pfctl -s info; pfctl -nf /etc/pf.conf; echo PF_SYNTAX_EXIT=$?; sha256 /etc/pf.conf
+Mon Nov  9 00:22:35 UTC 2026
+14.5-RELEASE
+14.5-RELEASE
+14.5-RELEASE
+em0 em1 lo0
+em0: flags=1008843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST,LOWER_UP> metric 0 mtu 1500
+        options=48525bb<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,JUMBO_MTU,VLAN_HWCSUM,TSO4,LRO,WOL_MAGIC,VLAN_HWFILTER,VLAN_HWTSO,HWSTATS,MEXTPG>
+        inet 192.168.50.101 netmask 0xffffff00 broadcast 192.168.50.255
+em1: flags=1008843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST,LOWER_UP> metric 0 mtu 1500
+        options=48525bb<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,JUMBO_MTU,VLAN_HWCSUM,TSO4,LRO,WOL_MAGIC,VLAN_HWFILTER,VLAN_HWTSO,HWSTATS,MEXTPG>
+        inet 172.16.0.1 netmask 0xffff0000 broadcast 172.16.255.255
+   route to: 0.0.0.0
+destination: 0.0.0.0
+       mask: 0.0.0.0
+    gateway: 192.168.50.1
+        fib: 0
+  interface: em0
+      flags: <UP,GATEWAY,DONE,STATIC>
+ recvpipe  sendpipe  ssthresh  rtt,msec    mtu        weight    expire
+       0         0         0         0      1500         1         0 
+net.inet.ip.forwarding: 1
+Status: Enabled for 0 days 00:01:35           Debug: Urgent
+
+State Table                          Total             Rate
+  current entries                        0               
+  searches                               0            0.0/s
+  inserts                                0            0.0/s
+  removals                               0            0.0/s
+Counters
+  match                                  0            0.0/s
+  bad-offset                             0            0.0/s
+  fragment                               0            0.0/s
+  short                                  0            0.0/s
+  normalize                              0            0.0/s
+  memory                                 0            0.0/s
+  bad-timestamp                          0            0.0/s
+  congestion                             0            0.0/s
+  ip-option                              0            0.0/s
+  proto-cksum                            0            0.0/s
+  state-mismatch                         0            0.0/s
+  state-insert                           0            0.0/s
+  state-limit                            0            0.0/s
+  src-limit                              0            0.0/s
+  synproxy                               0            0.0/s
+  map-failed                             0            0.0/s
+PF_SYNTAX_EXIT=0
+SHA256 (/etc/pf.conf) = 9db565f01fdf80ebd8b7deb7f500124ee1386f1c700c79dccbd23dd8047fcec6
+LAB#
