@@ -40,15 +40,16 @@ o [passo a passo de interfaces, roteamento e NAT](docs/implementacao.md).
 | `config/rc.conf` | trechos para `/etc/rc.conf` |
 | `config/pf.conf` | `/etc/pf.conf` |
 | `config/dhcpd.conf` | `/usr/local/etc/dhcpd.conf` |
-| `docs/testes.md` | roteiro de validação |
+| `docs/testes.md` | roteiro, resultados simulados e pendências físicas |
+| `docs/evidencias/simulacao/` | saídas de console dos testes executados |
 
 ## Status
 - [x] Definir interfaces e rede do perfil simulado (`em0`/`em1`, rede 50)
 - [ ] Levantar interfaces e rede reais e executar o teste físico
 - [x] Preencher o MAC do cliente simulado no `dhcpd.conf`
 - [x] Escrever o passo a passo de interfaces, roteamento e NAT
-- [ ] Executar e documentar os testes
-- [ ] Limitações conhecidas
+- [x] Executar e documentar conectividade, NAT e isolamento em simulação
+- [x] Registrar limitações e pendências em [docs/testes.md](docs/testes.md)
 
 ## Referências
 - Wright, G. R.; Stevens, W. R. *TCP/IP Illustrated, Vol. 2*. Addison-Wesley, 1995.

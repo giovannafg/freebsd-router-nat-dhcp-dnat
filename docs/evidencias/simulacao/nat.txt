@@ -1,0 +1,26 @@
+[5]   Done                    tcpdump -ni em1 -U -c 6 -w /tmp/nat-icmp-lan.pcap icmp and host 1.1.1.1 >/tmp/icmp-lan.log 2>&1
+[6]   Done                    tcpdump -ni em0 -U -c 6 -w /tmp/nat-icmp-wan.pcap icmp and host 1.1.1.1 >/tmp/icmp-wan.log 2>&1
+LAB# pfctl -ss; tcpdump -nn -r /tmp/nat-icmp-lan.pcap; tcpdump -nn -r /tmp/nat-icmp-wan.pcap
+all tcp 172.16.0.10:8080 (192.168.50.101:80) <- 192.168.50.200:65141       TIME_WAIT:TIME_WAIT
+all tcp 192.168.50.200:65141 -> 172.16.0.10:8080       TIME_WAIT:TIME_WAIT
+all tcp 192.168.50.200:8081 <- 172.16.0.10:54334       TIME_WAIT:TIME_WAIT
+all tcp 192.168.50.101:63296 (172.16.0.10:54334) -> 192.168.50.200:8081       TIME_WAIT:TIME_WAIT
+all tcp 1.1.1.1:80 <- 172.16.0.10:40637       FIN_WAIT_2:FIN_WAIT_2
+all tcp 192.168.50.101:51940 (172.16.0.10:40637) -> 1.1.1.1:80       FIN_WAIT_2:FIN_WAIT_2
+all icmp 1.1.1.1:8 <- 172.16.0.10:41731       0:0
+all icmp 192.168.50.101:10903 (172.16.0.10:41731) -> 1.1.1.1:8       0:0
+reading from file /tmp/nat-icmp-lan.pcap, link-type EN10MB (Ethernet), snapshot length 262144
+00:17:21.671660 IP 172.16.0.10 > 1.1.1.1: ICMP echo request, id 41731, seq 0, length 64
+00:17:21.679698 IP 1.1.1.1 > 172.16.0.10: ICMP echo reply, id 41731, seq 0, length 64
+00:17:22.715564 IP 172.16.0.10 > 1.1.1.1: ICMP echo request, id 41731, seq 1, length 64
+00:17:22.723237 IP 1.1.1.1 > 172.16.0.10: ICMP echo reply, id 41731, seq 1, length 64
+00:17:23.785714 IP 172.16.0.10 > 1.1.1.1: ICMP echo request, id 41731, seq 2, length 64
+00:17:23.793771 IP 1.1.1.1 > 172.16.0.10: ICMP echo reply, id 41731, seq 2, length 64
+reading from file /tmp/nat-icmp-wan.pcap, link-type EN10MB (Ethernet), snapshot length 262144
+00:17:21.671964 IP 192.168.50.101 > 1.1.1.1: ICMP echo request, id 10903, seq 0, length 64
+00:17:21.679545 IP 1.1.1.1 > 192.168.50.101: ICMP echo reply, id 10903, seq 0, length 64
+00:17:22.715789 IP 192.168.50.101 > 1.1.1.1: ICMP echo request, id 10903, seq 1, length 64
+00:17:22.723078 IP 1.1.1.1 > 192.168.50.101: ICMP echo reply, id 10903, seq 1, length 64
+00:17:23.786031 IP 192.168.50.101 > 1.1.1.1: ICMP echo request, id 10903, seq 2, length 64
+00:17:23.793522 IP 1.1.1.1 > 192.168.50.101: ICMP echo reply, id 10903, seq 2, length 64
+LAB#
