@@ -18,7 +18,8 @@ para a rede virtual. **Falta executar o teste físico no laboratório.** A rede
 não foram levantados em equipamento real. Antes da implantação física,
 substitua esses valores pelos observados e repita os testes.
 
-Consulte [a preparação e reprodução da simulação](docs/simulacao.md).
+Consulte [a preparação e reprodução da simulação](docs/simulacao.md) e
+o [passo a passo de interfaces, roteamento e NAT](docs/implementacao.md).
 
 ## Topologia
 ```
@@ -45,7 +46,7 @@ Consulte [a preparação e reprodução da simulação](docs/simulacao.md).
 - [x] Definir interfaces e rede do perfil simulado (`em0`/`em1`, rede 50)
 - [ ] Levantar interfaces e rede reais e executar o teste físico
 - [x] Preencher o MAC do cliente simulado no `dhcpd.conf`
-- [ ] Escrever o passo a passo de implementação
+- [x] Escrever o passo a passo de interfaces, roteamento e NAT
 - [ ] Executar e documentar os testes
 - [ ] Limitações conhecidas
 
