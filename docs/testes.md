@@ -1,5 +1,11 @@
 # Testes de conectividade, NAT e isolamento — issue #3
 
+> **Atualização (issue #14):** o `pf.conf` agora bloqueia ping da LAN para
+> fora do segmento, como pede o enunciado. Os pings para `192.168.50.1` e
+> `1.1.1.1` abaixo foram executados **antes** dessa regra: hoje eles devem
+> falhar. O roteiro do roteador físico ([roteiro-apresentacao.md](roteiro-apresentacao.md))
+> prova conectividade e NAT por TCP e testa o bloqueio.
+
 **Simulação executada; teste físico no laboratório pendente.**
 Execução em 08/11/2026 (Brasil; 09/11 em UTC), com três VMs FreeBSD
 14.5-RELEASE e QEMU 11.1.2/TCG. Consulte a [topologia e inicialização](simulacao.md)

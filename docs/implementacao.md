@@ -1,5 +1,9 @@
 # Interfaces, roteamento e NAT — issue #2
 
+> **Roteador físico:** use `scripts/instalar.sh`, que faz estes passos com
+> validação e backup ([roteador-notebook.md](roteador-notebook.md)). Este
+> documento descreve a aplicação manual, validada na simulação QEMU.
+
 **Validação física pendente.** Primeiro prepare as VMs descritas em
 [simulacao.md](simulacao.md), ou levante os valores reais do laboratório.
 Execute os comandos do roteador pelo console local, como root: a política
