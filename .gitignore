@@ -1,3 +1,9 @@
 *.swp
 .DS_Store
 Thumbs.db
+
+# Repositório PÚBLICO: valores reais do hardware/rede e saídas de testes
+# ficam só na máquina local.
+config/router.conf
+docs/evidencias/local/
+*.pcap

@@ -1,0 +1,47 @@
+# config/router.conf.exemplo
+#
+# Copie para config/router.conf e preencha com os valores do SEU hardware:
+#   cp config/router.conf.exemplo config/router.conf
+#
+# config/router.conf está no .gitignore porque guarda MACs e dados da sua
+# rede. Ele NÃO deve ir para o GitHub (o repositório é público).
+# Todos os valores abaixo são fictícios.
+#
+# Lido por scripts/instalar.sh e scripts/diagnostico.sh (sintaxe sh).
+
+# ---------------------------------------------------------------------------
+# LAN: adaptador USB-Ethernet ligado por cabo direto ao notebook Linux
+# ---------------------------------------------------------------------------
+# MAC do adaptador (no FreeBSD: ifconfig -> linha "ether"). O script acha o
+# nome (ue0, ue1...) sozinho, mesmo que a ordem de conexão mude.
+LAN_MAC="02:00:00:00:00:01"
+# Alternativa: fixar o nome e deixar LAN_MAC vazio. Ex.: LAN_IF="ue0"
+LAN_IF=""
+
+# ---------------------------------------------------------------------------
+# WAN
+# ---------------------------------------------------------------------------
+# Vazio = usa a única outra interface Ethernet presente (ex.: o celular com
+# ancoragem USB). Na apresentação, informe a porta com fio pelo nome
+# (WAN_IF="re0") ou pelo MAC (WAN_MAC="...").
+WAN_IF=""
+WAN_MAC=""
+# "DHCP" (padrão) ou IP fixo, ex.: "inet 192.168.10.50 netmask 255.255.255.0"
+WAN_CONFIG="DHCP"
+# Só com IP fixo: gateway da rede de acesso, ex.: "192.168.10.1"
+WAN_GATEWAY=""
+
+# Celular como WAN: "android", "iphone" ou "" (vazio na apresentação)
+CELULAR="android"
+
+# ---------------------------------------------------------------------------
+# DHCP da LAN
+# ---------------------------------------------------------------------------
+# MAC da placa COM FIO do notebook Linux (no Linux: ip link).
+# Essa máquina recebe sempre 172.16.0.10 e é o alvo do DNAT.
+CLIENTE_MAC="02:00:00:00:00:10"
+
+# DNS entregue aos clientes da LAN:
+#   desenvolvimento (celular): "1.1.1.1, 8.8.8.8"
+#   apresentação: "192.168.X.1" se responder, senão "164.41.101.4, 164.41.101.11"
+DNS_SERVERS="1.1.1.1, 8.8.8.8"
