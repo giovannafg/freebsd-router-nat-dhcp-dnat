@@ -1,0 +1,21 @@
+LAB# route -n get 172.16.0.10; ping -c 3 -t 5 172.16.0.10; nc -z -v -w 3 172.16.0.10 8080; echo DIRECT_TCP_EXIT=$?; nc -z -v -w 3 192.168.50.101 22; echo WAN_SSH_EXIT=$?; nc -z -v -w 3 192.168.50.101 80; echo DNAT_EXIT=$?
+   route to: 172.16.0.10
+destination: 172.16.0.0
+       mask: 255.255.0.0
+    gateway: 192.168.50.101
+        fib: 0
+  interface: em0
+      flags: <UP,GATEWAY,DONE,STATIC>
+ recvpipe  sendpipe  ssthresh  rtt,msec    mtu        weight    expire
+       0         0         0         0      1500         1         0
+PING 172.16.0.10 (172.16.0.10): 56 data bytes
+
+--- 172.16.0.10 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss
+nc: connect to 172.16.0.10 port 8080 (tcp) failed: Operation timed out
+DIRECT_TCP_EXIT=1
+nc: connect to 192.168.50.101 port 22 (tcp) failed: Operation timed out
+WAN_SSH_EXIT=1
+Connection to 192.168.50.101 80 port [tcp/http] succeeded!
+DNAT_EXIT=0
+LAB#
