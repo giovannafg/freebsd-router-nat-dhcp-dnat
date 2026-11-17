@@ -61,6 +61,7 @@ sh scripts/diagnostico.sh                           # estado do roteador
 | `scripts/diagnostico.sh` | Mostra interfaces, regras, estados, log e leases (só leitura) |
 | `docs/roteador-notebook.md` | Montagem física, instalação e **o que muda no dia** |
 | `docs/roteiro-apresentacao.md` | Roteiro de testes do roteador físico |
+| `docs/roteiro-ensaio.md` | Divisão de tarefas do grupo e ensaio sem a rede do professor |
 | `docs/simulacao.md`, `docs/implementacao.md`, `docs/testes.md` | Simulação QEMU, aplicação manual e evidências |
 
 ## Privacidade

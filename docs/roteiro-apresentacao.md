@@ -9,9 +9,13 @@ celular como WAN; **não** = só com a rede do professor.
 
 | Máquina | Papel |
 |---|---|
-| **Roteador** | Notebook com FreeBSD (HD externo). Use dois consoles: Alt+F1 e Alt+F2 |
+| **Roteador** | Notebook Acer da Giovanna com FreeBSD (HD externo). Use dois consoles: Alt+F1 e Alt+F2 |
 | **Linux** | Cliente da LAN, `172.16.0.10`, servidor do DNAT |
 | **Windows** | Máquina do lado WAN (só na apresentação) |
+
+Linux e Windows são só os exemplos: o cliente LAN e a máquina WAN podem ter
+qualquer sistema. Os comandos equivalentes em Linux, macOS e Windows e as
+restrições de cada máquina estão em [roteiro-ensaio.md](roteiro-ensaio.md#comandos-por-sistema).
 
 Nos comandos, troque `<wan>`/`<lan>` pelos nomes que
 `sh scripts/diagnostico.sh interfaces` mostra, e `IP_WAN` pelo IP da WAN do
