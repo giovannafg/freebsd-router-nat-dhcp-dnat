@@ -1,0 +1,26 @@
+LAB# ping -c 3 -t 5 172.16.0.1; ping -c 3 -t 5 192.168.50.1; ping -c 3 -t 5 1.1.1.1
+PING 172.16.0.1 (172.16.0.1): 56 data bytes
+64 bytes from 172.16.0.1: icmp_seq=0 ttl=64 time=3.021 ms
+64 bytes from 172.16.0.1: icmp_seq=1 ttl=64 time=3.130 ms
+64 bytes from 172.16.0.1: icmp_seq=2 ttl=64 time=2.329 ms
+
+--- 172.16.0.1 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 2.329/2.827/3.130/0.355 ms
+PING 192.168.50.1 (192.168.50.1): 56 data bytes
+64 bytes from 192.168.50.1: icmp_seq=0 ttl=254 time=3.335 ms
+64 bytes from 192.168.50.1: icmp_seq=1 ttl=254 time=2.417 ms
+64 bytes from 192.168.50.1: icmp_seq=2 ttl=254 time=3.342 ms
+
+--- 192.168.50.1 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 2.417/3.031/3.342/0.435 ms
+PING 1.1.1.1 (1.1.1.1): 56 data bytes
+64 bytes from 1.1.1.1: icmp_seq=0 ttl=254 time=8.226 ms
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=254 time=9.565 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=254 time=9.882 ms
+
+--- 1.1.1.1 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 8.226/9.224/9.882/0.718 ms
+LAB#
